@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuralar</title>
+</head>
+<body>
+    <ul>
+        {% for item in data %}
+            <li>{{item.title}}</li>
+            <li>{{item.entity}}</li>
+            <li>{{item.permanent}}</li>
+            <li>{{item.yedek}}</li>
+        {% endfor %}
+        </ul>
+</body>
+</html>
