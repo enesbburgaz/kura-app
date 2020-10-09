@@ -1,50 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ana Sayfa</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 </head>
 
 <style type="text/css">
-    
-.center_div{
+    .center_div {
         margin: 0 auto;
-        width:50%;
-}
+        width: 50%;
+    }
 </style>
 
 <body>
     <div class="container center_div">
-            <div class="text-center">
-                <h1>Kura App</h1> 
+        <div class="text-center">
+            <h1>Kura App</h1>
+        </div>
+        <form action="/result" method="POST">
+            <div class="form-group">
+                <label for="baslik">Kura Başlığı</label>
+                <input class="form-control" type="text" name="baslik" required>
             </div>
-            <form action="/result" method="POST">
-                <div class="form-group">
-                    <label for="baslik">Kura Başlığı</label><br>
-                    <input class="form-control" type="text" name="baslik" required><br>
-                </div>
-                <div class="form-group">
-                    <label for="varlik">Kura Listesi</label><br>
-                    <textarea class="form-control" name="varlik" rows="5" required></textarea><br>
-                </div>
-                <div class="form-group">
-                    <label for="asil">Asil Talihli Sayısı</label><br>
-                    <input class="form-control" type="number" name="asil" value="1"><br>
-                </div>
-                <div class="form-group">
-                    <label for="yedek">Yedek Talihli Sayısı</label><br>
-                    <input class="form-control" type="number" name="yedek" value="0"><br><br>
-                </div>
-                <div class="text-center">
-                <input type="submit" class="btn btn-primary" value="Kura Çek"> 
-                </div>
-            </form>        
+            <div class="form-group">
+                <label for="varlik">Kura Listesi</label>
+                <textarea class="form-control" name="varlik" rows="5" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="asil">Asil Talihli Sayısı</label>
+                <input class="form-control" type="number" name="asil" value="1">
+            </div>
+            <div class="form-group">
+                <label for="yedek">Yedek Talihli Sayısı</label>
+                <input class="form-control" type="number" name="yedek" value="0">
+            </div>
+            <input type="submit" class="btn btn-primary" value="Kura Çek">
+            <a href="/past" class="btn btn-secondary float-right">Geçmiş</a>
+        </form>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>

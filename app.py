@@ -6,10 +6,12 @@ from datetime import datetime
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/Enes/Documents/Projects/kura-app/kura.db'
 db = SQLAlchemy(app)
+db.create_all()
 
 @app.route("/")
 def index():
     return render_template("index.html")
+
 
 @app.route("/result", methods = ["POST"])
 def result():
@@ -41,15 +43,25 @@ def result():
     'asil': asilSayi,
     'yedek': yedekSayi
     }]
+    asil = ",".join(asilList)
+    yedek = ",".join(yedekList)
+    kura = Kuralar(tarih = tarih, baslik =baslik,asil =asil, yedek = yedek)
+    db.session.add(kura)
+    db.session.commit()
     return render_template("result.html", data = data)
+
+@app.route("/past")
+def past():
+    data = Kuralar.query.all()
+    return render_template("past.html", data = data)
 
 class Kuralar(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    tarih = db.Column(db.String(80), unique=True, nullable=False)
-    baslik = db.Column(db.String(120), unique=True, nullable=False)
-    asil = db.Column(db.String(120), unique=True, nullable=False)
-    yedek = db.Column(db.String(120), unique=True, nullable=True)
-
+    tarih = db.Column(db.String(80), unique=False, nullable=False)
+    baslik = db.Column(db.String(120), unique=False, nullable=False)
+    asil = db.Column(db.String(120), unique=False, nullable=False)
+    yedek = db.Column(db.String(120), unique=False, nullable=True)
+    
     def __repr__(self):
         return '<User %r>' % self.username
 
