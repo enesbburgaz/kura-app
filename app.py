@@ -6,6 +6,18 @@ from datetime import datetime
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/Enes/Documents/Projects/kura-app/kura.db'
 db = SQLAlchemy(app)
+
+class Kuralar(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    tarih = db.Column(db.String(80), unique=False, nullable=False)
+    baslik = db.Column(db.String(120), unique=False, nullable=False)
+    asil = db.Column(db.String(120), unique=False, nullable=False)
+    yedek = db.Column(db.String(120), unique=False, nullable=True)
+    
+    def __repr__(self):
+        return '<User %r>' % self.username
+
+
 db.create_all()
 
 @app.route("/")
@@ -55,15 +67,6 @@ def past():
     data = Kuralar.query.all()
     return render_template("past.html", data = data)
 
-class Kuralar(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    tarih = db.Column(db.String(80), unique=False, nullable=False)
-    baslik = db.Column(db.String(120), unique=False, nullable=False)
-    asil = db.Column(db.String(120), unique=False, nullable=False)
-    yedek = db.Column(db.String(120), unique=False, nullable=True)
-    
-    def __repr__(self):
-        return '<User %r>' % self.username
 
 if __name__ == "__main__":
     app.run(debug = True)
